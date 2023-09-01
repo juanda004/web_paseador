@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calcular Paseo</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    .container {
+      text-align: center;
+      background-color: #17a1d8;
+    }
+    
+    button {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="header">CALCULAR VALOR PASEO</h1>
+
+    <h2>Indique cantidad de perros grandes <input type="number" id="perrosGrandes"></h2>
+
+    <h2>Indique cantidad de perros medianos <input type="number" id="perrosMedianos"></h2>
+
+    <h2>Indique cantidad de perros chiquitos <input type="number" id="perrosPequenos"></h2>
+
+    <h2>Indique la cantidad de horas de paseo <input type="number" id="horasPaseo"></h2>
+
+    <button onclick="calcularValorTotal()">Calcular valor total</button>
+    <p id="valorTotal"></p>
+  </div>
+  
+  <script>
+    function calcularValorTotal() {
+      var perrosGrandes = document.getElementById("perrosGrandes").value;
+      var perrosMedianos = document.getElementById("perrosMedianos").value;
+      var perrosPequenos = document.getElementById("perrosPequenos").value;
+      var horasPaseo = document.getElementById("horasPaseo").value;
+
+      var valorTotal = perrosGrandes * 10000 + perrosMedianos * 5000 + perrosPequenos * 3000;
+
+      if (perrosGrandes + perrosMedianos + perrosPequenos > 3) {
+        valorTotal = valorTotal * 0.9;
+      }
+
+      document.getElementById("valorTotal").innerHTML ="Valor a pagar: $ " +valorTotal;
+    }
+  </script>
+</body>
+</html>
